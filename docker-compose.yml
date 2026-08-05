@@ -1,0 +1,42 @@
+version: '3.8'
+
+services:
+
+  db:
+    image: mysql:8.0
+    container_name: mysql_db
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: secret
+      MYSQL_DATABASE: HEALTH_DB
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+      - ./db/init.sql:/docker-entrypoint-initdb.d/init.sql
+
+  frontend:
+    build: ./frontend
+    container_name: react_frontend
+    restart: always
+    ports: 
+      - "5173:80"
+    depends_on:
+      - backend
+
+  backend:
+    build: ./backend
+    container_name: node_backend
+    restart: always
+    ports: 
+      - "8010:8010"
+    environment:
+      DB_HOST: db
+      DB_USER: root
+      DB_PASSWORD: secret
+      DB_NAME: HEALTH_DB
+    depends_on:
+      - db
+
+volumes:
+  mysql_data:

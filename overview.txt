@@ -1,0 +1,14 @@
+Component / ToolRole in Your Learning 
+
+React + Express + MySQL: The core 3-tier app. 
+Simple enough to build quickly, complex enough to mirror real enterprise architecture.
+
+Docker & Docker Compose: Packaging the frontend, backend, and database into independent containers and networking them locally.
+
+GitHub Actions (CI/CD): Automating code linting, building Docker images, and pushing them to a container registry (e.g., Docker Hub or AWS ECR).
+
+Terraform (IaC): Provisioning cloud infrastructure (like an AWS EKS cluster or EC2 instances + AWS RDS MySQL) automatically via code.
+
+Kubernetes (K8s): Deploying and managing your containers with Deployment manifests, Services, Ingress Controllers, ConfigMaps, and Secrets.
+
+Prometheus & Grafana: Scraping metrics from your backend (e.g., CPU, HTTP request counts, DB latency) and visualizing them on custom dashboards.ˀxs

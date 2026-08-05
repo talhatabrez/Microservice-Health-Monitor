@@ -1,0 +1,5 @@
+node_modules/
+dist/
+.env
+overview.txt
+project structure.txt
