@@ -31,7 +31,7 @@ jobs:
                 push: true
                 tags: |
                     ${{ secrets.DOCKERHUB_USERNAME }}/health-backend:latest
-                    ${{ secrets.DOCKERHUB_TOKEN }}/health-backend:${{ github.sha }}
+                    ${{ secrets.DOCKERHUB_USERNAME }}/health-backend:${{ github.sha }}
 
             - name: Build and Push Frontend Image
               uses: docker/build-push-action@v5
@@ -40,4 +40,4 @@ jobs:
                 push: true
                 tags: |
                     ${{ secrets.DOCKERHUB_USERNAME }}/health-frontend:latest
-                    ${{ secrets.DOCKERHUB_TOKEN }}/health-frontend:${{ github.sha }}
+                    ${{ secrets.DOCKERHUB_USERNAME }}/health-frontend:${{ github.sha }}
