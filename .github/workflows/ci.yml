@@ -12,6 +12,9 @@ jobs:
 
         steps:
 
+            - name: Set up QEMU
+              uses: docker/setup-qemu-action@v3
+
             - name: Checkout Code
               uses: actions/checkout@v4
 
@@ -29,6 +32,7 @@ jobs:
               with:
                 context: ./backend
                 push: true
+                platforms: linux/amd64,linux/arm64
                 tags: |
                     ${{ secrets.DOCKERHUB_USERNAME }}/health-backend:latest
                     ${{ secrets.DOCKERHUB_USERNAME }}/health-backend:${{ github.sha }}
@@ -38,6 +42,7 @@ jobs:
               with:
                 context: ./frontend
                 push: true
+                platforms: linux/amd64,linux/arm64
                 tags: |
                     ${{ secrets.DOCKERHUB_USERNAME }}/health-frontend:latest
                     ${{ secrets.DOCKERHUB_USERNAME }}/health-frontend:${{ github.sha }}
